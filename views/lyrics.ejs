@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Be part | Main</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script defer src="script.js"></script>
+
+
+<style>
+
+:root {
+  --flick: #000000;
+  --hertz: 0s;
+}
+
+body,h1,h2,h3,h4,h5,h6 {font-family: 'Courier New', monospace}
+.w3-bar,button {font-family: 'Lucida Console', monospace}
+h1 {font-family: 'copperplate', fantasy}
+.fa-plane,.fa-user {font-size:200px}
+.hide {
+  display: none;
+}
+.myDIV:hover + .hide {
+  display: block;
+  color: rgb(1, 0, 0);
+  font-family: "Montserrat", sans-serif;
+}
+
+input[type=text], input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=button], input[type=reset]{
+  width: 45%;
+  background-color: rgb(152, 248, 235);
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=reset]:hover {
+  background-color: rgb(93, 247, 226);
+}
+input[type=button]:hover {
+  background-color: rgb(93, 247, 226);
+}
+
+#pulser {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: black;
+                animation-name: pulser;
+                animation-duration: var(--hertz);
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            @keyframes pulser {
+                0%   {background-color: black;}
+                49%   {background-color: black;}
+                50%   {background-color: var(--flick);}
+                100%   {background-color: var(--flick);}
+            }
+
+
+</style>
+</head>
+
+
+<body id = "pulser" style= "text-align:center; color:white;" >
+  
+    <h1 id="ttl">Lyrics Prompt</h1>
+
+    
+
+    
+ 
+
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+     // socket io scripts
+      var socket = io();
+   
+     socket.on('initLyrics', function(song) {
+
+      document.getElementById("ttl").innerHTML += " </br> initLyrics: " + song;
+
+      document.getElementById("lyrics_iframe").innerHTML = " </br> initLyrics: " + song;
+
+
+     });
+   
+   
+   
+   
+    </script>
+
+
+</body>
+</html>
